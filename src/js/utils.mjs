@@ -23,6 +23,26 @@ export function setClick(selector, callback) {
 }
 
 /* **************************
+Function to load partials
+****************************** */
+async function loadTemplate(path) {
+  const res = await fetch(path);
+  const template = await res.text();
+  return template;
+}
+
+/* ****************************************************
+Function render content to the main site with a partial 
+******************************************************* */
+export function renderWithTemplate(template, parentElement, data, callback) {
+  parentElement.insertAdjacentHTML("afterbegin", template);
+  //if there is a callback...call it and pass data
+  if (callback) {
+    callback(data);
+  }
+}
+
+/* **************************
 Function to make the header and footer dynamic
 ****************************** */
 export async function loadHeaderFooter() {
@@ -35,8 +55,7 @@ export async function loadHeaderFooter() {
 
     renderWithTemplate(headerTemplate, headerElement);
     renderWithTemplate(footerTemplate, footerElement);
-    updateCartItemCount();
-    // cartAnimation();
+
   } else {
     console.error("Header or footer element not found");
   }
