@@ -21,3 +21,23 @@ export function setClick(selector, callback) {
   });
   qs(selector).addEventListener("click", callback);
 }
+
+/* **************************
+Function to make the header and footer dynamic
+****************************** */
+export async function loadHeaderFooter() {
+  const headerElement = document.getElementById("page-header");
+  const footerElement = document.getElementById("page-footer");
+
+  if (headerElement && footerElement) {
+    const headerTemplate = await loadTemplate("../partials/header.html");
+    const footerTemplate = await loadTemplate("../partials/footer.html");
+
+    renderWithTemplate(headerTemplate, headerElement);
+    renderWithTemplate(footerTemplate, footerElement);
+    updateCartItemCount();
+    // cartAnimation();
+  } else {
+    console.error("Header or footer element not found");
+  }
+}
