@@ -71,6 +71,9 @@ header div img{
   width: 100%;
   color: #0F084B;
 }
+#navBar li:hover{
+  background-color: #C2E7D9;
+}
 .footer-elements{
   margin-top: 1.5em;
   padding: 1em;
@@ -80,4 +83,36 @@ header div img{
   border: 1px solid;
   padding: .5em;
   text-align: center;
+}
+/* main element body */
+.hero-banner{
+  margin-top: 1.5em;
+  margin-left: 1em;
+  margin-right: 1em;
+  padding: 1em;
+  text-align: center;
+  background-color: #C2E7D9;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
+/* Search bar */
+.searchBar{
+  margin: 0 auto;
+  padding: 1em;
+  max-width: 40%; 
+  margin-top: 2em;
+}
+#pkmnName{
+  width: 70%;
+  padding: .5em;
+  border-radius: 5px;
+  border: 1px solid;
+}
+#searchPkmn{
+  padding: .45em;
+  width: 17%;
+}
+.line-div{
+  margin-left: 1em;
+  margin-right: 1em;
+  margin-top: 1.8em;
 }
