@@ -93,6 +93,7 @@ header div img{
   text-align: center;
   background-color: #C2E7D9;
   box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  border-radius: 14px;
 }
 /* Search bar */
 .searchBar{
@@ -115,4 +116,38 @@ header div img{
   margin-left: 1em;
   margin-right: 1em;
   margin-top: 1.8em;
+}
+#poke-recommend{
+  text-align: center;
+}
+.recent-newsletter{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1.5em;
+}
+#vertical-div{
+  border-right: 1px solid;
+  margin-left: .5em;
+  margin-right: .5em;
+}
+#newsletter{
+  background-color: #C2E7D9;
+  padding: 1em;
+  text-align: center;
+  border-radius: 14px;
+  margin-right: 1em;
+  margin-left: 1em;
+  max-width: 40%;
+}
+#newsletter h3{
+  line-height: 2em;
+}
+#newsletter button{
+  padding: .47em;
+  width: 15%;
+}
+#recent-search{
+  margin-left: 1em;
+  margin-right: 1em;
+  min-width: 40%;
 }
