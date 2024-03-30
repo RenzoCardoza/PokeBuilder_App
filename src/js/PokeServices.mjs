@@ -1,4 +1,5 @@
-const baseURL = import.meta.env.VITE_SERVER_URL;
+const baseURLP = import.meta.env.VITE_SERVER_URL;
+const baseURL = "https://pokeapi.co/api/v2/pokemon/";
 
 async function convertToJson(res) {
   const data = await res.json();
