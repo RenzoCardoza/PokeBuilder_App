@@ -4,7 +4,7 @@
 body {
   margin: 0;
 }
-h1, h2, h3{
+h1, h2, h3,h4{
   font-family: "Libre Baskerville", serif;
   letter-spacing: 0.07em;
 }
@@ -150,4 +150,24 @@ header div img{
   margin-left: 1em;
   margin-right: 1em;
   min-width: 40%;
+}
+.card-container{
+  display: flex;
+  list-style-type: none;
+  justify-content: space-around;
+}
+.pokemon-card{
+  background-color: #C2E7D9;
+  padding: 1em;
+  border-radius: 10px;
+}
+.pokemon-card a{
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  color: #0F084B;
+}
+.pokemon-card a img{
+  max-width: 120px;
+  height: auto;
 }

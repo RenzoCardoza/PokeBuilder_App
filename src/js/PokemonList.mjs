@@ -5,7 +5,8 @@ function pokemonCardTemplate(pokemon) {
     const pokemonName = capitalizeName(pokemon.name);
     return `<li class="pokemon-card">
     <a href="/pokemon_pages/index.html?pokemon=${pokemon.id}">
-    <h3 class="card_name">${pokemonName} #${pokemon.id}</h3>
+    <h4 class="card_name">${pokemonName}</h4>
+    <h4 class="card_name">#${pokemon.id}</h4>
     <img
         src=${pokemon.sprites.front_default}
         alt="Image of ${pokemonName}"
