@@ -2,8 +2,6 @@
 export function qs(selector, parent = document) {
   return parent.querySelector(selector);
 }
-// or a more concise version if you are into that sort of thing:
-// export const qs = (selector, parent = document) => parent.querySelector(selector);
 
 // retrieve data from localstorage
 export function getLocalStorage(key) {
@@ -59,4 +57,9 @@ export async function loadHeaderFooter() {
   } else {
     console.error("Header or footer element not found");
   }
+}
+
+// Function to capitalize names
+export function capitalizeName(name) {
+  return name.charAt(0).toUpperCase() + name.slice(1);
 }
