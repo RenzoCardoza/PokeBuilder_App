@@ -31,7 +31,6 @@ export default class PokemonList {
     if (this.pokeArray) {
         for (let i = 0; i < 7; i++){
             pokemon = await this.dataSource.getData(this.pokeArray[i]); 
-            console.log(pokemon);
             this.renderPokeCard(pokemon); 
         }
     }
@@ -39,7 +38,6 @@ export default class PokemonList {
   renderPokeCard(pokemon){
     // renderPokemonCardTemplate(pokemonCardTemplate(), this.listElement, pokemon);
     let htmlCard = pokemonCardTemplate(pokemon);
-    console.log(htmlCard);
     // this.listElement.innerHTML = htmlCard;
     this.listElement.insertAdjacentHTML("afterbegin", htmlCard);
   }
