@@ -22,7 +22,7 @@ export default class PokeServices {
   async findPokemonById(pokemonId) {
     const response = await fetch(baseURL + `${pokemonId}`);
     const data = await convertToJson(response);
-    return data.Result; //check this one later
+    return data;
   }
   async getRangeofPokemon(range){
     let pokeArray = [];
