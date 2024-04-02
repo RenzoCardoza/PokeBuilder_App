@@ -166,8 +166,34 @@ header div img{
   display: flex;
   flex-direction: column;
   color: #0F084B;
+  align-items: center;
 }
 .pokemon-card a img{
   max-width: 120px;
+  height: auto;
+}
+#pokemon-show{
+  /* flex-wrap: wrap;
+  gap: 20px; */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  padding: 1em;
+  margin: 1em;
+}
+#pokemon-show .pokemon-card{
+  margin: 0em 1em 1.5em;
+  text-align: center;
+}
+.divider h2{
+  text-align: center;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+.front-back-btns{
+  display: flex;
+  justify-content: center; 
+}
+#backBtn img, #frontBtn img{
+  width: 2.2em;
   height: auto;
 }

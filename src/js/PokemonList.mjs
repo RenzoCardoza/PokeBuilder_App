@@ -3,7 +3,7 @@ import { capitalizeName } from "./utils.mjs";
 
 function pokemonCardTemplate(pokemon) {
     const pokemonName = capitalizeName(pokemon.name);
-    return `<li class="pokemon-card">
+    return `<div class="pokemon-card">
     <a href="/pokemon_pages/index.html?pokemon=${pokemon.id}">
     <h4 class="card_name">${pokemonName}</h4>
     <h4 class="card_name">#${pokemon.id}</h4>
@@ -13,26 +13,40 @@ function pokemonCardTemplate(pokemon) {
     />
     <span class="pokemon-type">Type: ${pokemon.types[0].type.name}</span>
     </a>
-</li>`;
+</div>`;
 }
 
 export default class PokemonList {
-  constructor(pokemonId = null, pokeArray = null, dataSource, listElement) {
+  constructor(pokemonId = null, pokeArray = null, dataSource, listElement, pokemonPage = false) {
     this.pokemonId = pokemonId;
     this.dataSource = dataSource;
     this.listElement = listElement;
     this.pokeArray = pokeArray;
+    this.pokemonPage = pokemonPage;
   }
   async init() {
-    let pokemon;
-    if (this.pokemonId > 0){
+    if (!this.pokemonPage){
+      let pokemon;
+      if (this.pokemonId > 0){
         pokemon = await this.dataSource.getData(this.pokemonId);
-    }
-    if (this.pokeArray) {
+      }
+      if (this.pokeArray) {
         for (let i = 0; i < 7; i++){
-            pokemon = await this.dataSource.getData(this.pokeArray[i]); 
-            this.renderPokeCard(pokemon); 
+          pokemon = await this.dataSource.getData(this.pokeArray[i]); 
+          this.renderPokeCard(pokemon); 
         }
+      }
+    } else {
+      let pokerange = []
+      for (let i = 0; i < 40; i++){
+        pokerange.push(i);
+      }
+      let List = await this.dataSource.getRangeofPokemon(pokerange);
+      let homeList = List.reverse();
+      console.log(homeList);
+      for (let i = 0; i < homeList.length; i++){
+        this.renderPokeCard(homeList[i]);
+      }
     }
   }
   renderPokeCard(pokemon){

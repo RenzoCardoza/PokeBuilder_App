@@ -18,12 +18,20 @@ export default class PokeServices {
   async getData(pokemon) {
     const response = await fetch(baseURL + `${pokemon}`); // this should work -- test it first
     const data = await convertToJson(response);
-    console.log(data);
     return data;
   }
   async findPokemonById(pokemonId) {
     const response = await fetch(baseURL + `${pokemonId}`);
     const data = await convertToJson(response);
-    return data.Result;
+    return data.Result; //check this one later
+  }
+  async getRangeofPokemon(range){
+    let pokeArray = [];
+    for (let i = 1; i < (range.length + 1); i++){
+      const response = await fetch(baseURL + `${i}`);
+      const data = await convertToJson(response);
+      pokeArray.push(data);
+    }
+    return pokeArray
   }
 }
