@@ -13,10 +13,9 @@ async function convertToJson(res) {
 export default class PokeServices {
   constructor(pokemon) {
     this.pokemon = pokemon;
-    // this.path = `../json/${this.pokemon}.json`; // check this first
   }
   async getData(pokemon) {
-    const response = await fetch(baseURL + `${pokemon}`); // this should work -- test it first
+    const response = await fetch(baseURL + `${pokemon}`);
     const data = await convertToJson(response);
     return data;
   }
@@ -27,7 +26,7 @@ export default class PokeServices {
   }
   async getRangeofPokemon(range){
     let pokeArray = [];
-    for (let i = 1; i < (range.length + 1); i++){
+    for (let i = range[0]; i <= range[range.length - 1]; i++){
       const response = await fetch(baseURL + `${i}`);
       const data = await convertToJson(response);
       pokeArray.push(data);

@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 import { capitalizeName } from "./utils.mjs";
 
+//template for the pokemon cards (small ones)
 function pokemonCardTemplate(pokemon) {
     const pokemonName = capitalizeName(pokemon.name);
     return `<div class="pokemon-card">
@@ -25,6 +26,7 @@ export default class PokemonList {
     this.pokemonPage = pokemonPage;
   }
   async init() {
+    // if this is not a pokemon list page load random 6 pokemon otherwise load it as normal page
     if (!this.pokemonPage){
       let pokemon;
       if (this.pokemonId > 0){
@@ -37,22 +39,27 @@ export default class PokemonList {
         }
       }
     } else {
-      let pokerange = []
-      for (let i = 0; i < 40; i++){
+      this.renderEntireList(1)
+    }
+  }
+  // method to render a card using the template inside the function above
+  renderPokeCard(pokemon){
+    let htmlCard = pokemonCardTemplate(pokemon);
+    this.listElement.insertAdjacentHTML("afterbegin", htmlCard);
+  }
+  // method to render the entire list of pokemon through ids
+  async renderEntireList(pageNum){
+    let pokerange = [];
+    const startId = (pageNum - 1) * 40 + 1;
+    const endId = pageNum * 40;
+      for (let i = startId; i <= endId; i++){
         pokerange.push(i);
       }
       let List = await this.dataSource.getRangeofPokemon(pokerange);
       let homeList = List.reverse();
-      console.log(homeList);
+      this.listElement.innerHTML = "";
       for (let i = 0; i < homeList.length; i++){
         this.renderPokeCard(homeList[i]);
       }
-    }
-  }
-  renderPokeCard(pokemon){
-    // renderPokemonCardTemplate(pokemonCardTemplate(), this.listElement, pokemon);
-    let htmlCard = pokemonCardTemplate(pokemon);
-    // this.listElement.innerHTML = htmlCard;
-    this.listElement.insertAdjacentHTML("afterbegin", htmlCard);
   }
 }
