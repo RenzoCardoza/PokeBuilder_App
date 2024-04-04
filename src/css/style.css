@@ -173,8 +173,6 @@ header div img{
   height: auto;
 }
 #pokemon-show{
-  /* flex-wrap: wrap;
-  gap: 20px; */
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
   padding: 1em;
@@ -204,4 +202,24 @@ header div img{
 #pageInfos{
   display: flex;
   justify-content: space-between;
+}
+.pokemon-details-card{
+  margin: 3em auto 2em;
+  max-width: 70%;
+  padding: 2em;
+  border-radius: 8px;
+  background-color: #C2E7D9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.pokemonTitle{
+  text-align: center;
+}
+#pokemonDetailsTitle{
+  margin: 2em auto 1em;
+}
+.addPokeBuildBtn{
+  width: 50%;
+  padding: .4em;
 }

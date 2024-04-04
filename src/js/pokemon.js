@@ -8,7 +8,8 @@ loadHeaderFooter();
 const dataSource = new PokeServices();
 const parameter = getParam("pokemon");
 const pokemonId = parseInt(parameter);
-const cardContainer = document.querySelector("main");
-const pokemonDetails = new PokemonDetails(pokemonId, dataSource, cardContainer);
+const cardContainer = document.querySelector("#top-details");
+const moveContainer = document.querySelector("#move-list");
+const pokemonDetails = new PokemonDetails(pokemonId, dataSource, cardContainer, moveContainer);
 
 pokemonDetails.init();
