@@ -213,6 +213,16 @@ header div img{
   flex-direction: column;
   align-items: center;
 }
+.pokemon-details{
+  display: flex;
+  align-content: center;
+  padding: .5em;
+  width: 100%;
+  justify-content: space-around;
+}
+.pokemon-details img{
+  align-self: center;
+}
 .pokemonTitle{
   text-align: center;
 }
@@ -222,4 +232,23 @@ header div img{
 .addPokeBuildBtn{
   width: 50%;
   padding: .4em;
+  border-radius: 8px;
+  border: 1px solid;
+}
+#move-list{
+  background-color: #C2E7D9;
+  margin: 0 auto;
+  width: 85%;
+  padding: 1em;
+  border-radius: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+#move-list p{
+  padding: .7em;
+  background-color: #E2F3EC;
+  border-radius: 8px;
+  margin-left: .5em;
+  margin-right: .5em;
 }

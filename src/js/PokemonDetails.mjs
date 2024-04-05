@@ -1,7 +1,7 @@
 import { capitalizeName } from "./utils.mjs"
 
 //function that has the template for the details card
-function pokemonDetailsTemplate(pokemon, moves){
+function pokemonDetailsTemplate(pokemon){
     const pokeName = capitalizeName(pokemon.name);
     const ability = capitalizeName(pokemon.abilities[0].ability.name);
     return `<h2 id="pokemonDetailsTitle">Pokemon Details</h2>
@@ -51,6 +51,9 @@ export default class PokemonDetails {
         // element.innerHTML = details;
         cardElement.insertAdjacentHTML("afterbegin", details);
         /// here will be the code to iterate through the list and display the p elements
+        for (let i = 0; i < moveList.length; i++){
+            moveContainer.appendChild(moveList[i]);
+        }
         /////////////////////////////////////// CODE GOES HERE ///////////////////////
     }
     getPokemonMoves(pokemon){
@@ -58,8 +61,9 @@ export default class PokemonDetails {
         const pElements = [];
         for (let i = 0; i < pokemon.moves.length; i++){
             //create a p element and add the text from the api to the innerHTML property
+            let moveText = capitalizeName(pokemon.moves[i].move.name);
             let pElement = document.createElement("p");
-            pElement.innerHTML = pokemon.moves[i].move.name;
+            pElement.innerHTML = moveText;
             pElements.push(pElement);
         }
         return pElements;
