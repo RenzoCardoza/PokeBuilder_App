@@ -71,13 +71,3 @@ export function getParam(param) {
   const product = urlParams.get(param);
   return product;
 }
-
-// functions that will allow to interact with the localstorage values
-// retrieve data from localstorage
-export function getLocalStorage(key) {
-  return JSON.parse(localStorage.getItem(key));
-}
-// save data to local storage
-export function setLocalStorage(key, data) {
-  localStorage.setItem(key, JSON.stringify(data));
-}
