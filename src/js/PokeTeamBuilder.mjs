@@ -25,10 +25,15 @@ export default class PokeBuilder{
     }
     async init(){
         const pokemonTeam = getLocalStorage(this.key);
-        renderPokemonTeam(pokemonTeam);
+        if (pokemonTeam){
+            renderPokemonTeam(pokemonTeam);
+        }
     }
     renderPokemonTeam(team){
         const htmlItems = team.map((pokemon) => {renderPokemonTeam(pokemon)});
         this.parentElement.innerHTML = htmlItems;
+    }
+    addToBuilder(pokemon){
+        
     }
 }
