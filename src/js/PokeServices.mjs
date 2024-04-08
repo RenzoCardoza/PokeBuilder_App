@@ -33,4 +33,13 @@ export default class PokeServices {
     }
     return pokeArray
   }
+  async getTeamById(teamIds){
+    let teamArray = [];
+    for (let i = 0; i < teamIds.length; i++){
+      let teamMember = await this.findPokemonById(teamIds[i]);
+      console.log(teamArray);
+      teamArray.push(teamMember);
+    }
+    return teamArray;
+  }
 }

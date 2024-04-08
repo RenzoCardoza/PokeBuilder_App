@@ -1,9 +1,12 @@
-import { getLocalStorage, setLocalStorage, capitalizeName } from "./utils.mjs";
+import PokeServices from "./PokeServices.mjs";
+import { getLocalStorage, capitalizeName } from "./utils.mjs";
 
 //// function template here
-function renderPokemonTeam(pokemon){
+function renderPokemonTeamTemplate(pokemon){
+    console.log(pokemon);
     const pokemonName = capitalizeName(pokemon.name);
     return `<div class="pokemon-card">
+        <img class="deleteBtn" src="/images/close-circle-svgrepo-com.svg" alt="close button">
         <a href="/pokemon_pages/index.html?pokemon=${pokemon.id}">
             <h4 class="card_name">${pokemonName}</h4>
             <h4 class="card_name">#${pokemon.id}</h4>
@@ -24,16 +27,20 @@ export default class PokeBuilder{
         this.parentElement = parentElement;
     }
     async init(){
-        const pokemonTeam = getLocalStorage(this.key);
+        let pokemonTeam = getLocalStorage(this.key);
         if (pokemonTeam){
-            renderPokemonTeam(pokemonTeam);
+            const pokeServices = new PokeServices();
+            let teamArray = await pokeServices.getTeamById(pokemonTeam);
+            console.log(teamArray);
+            this.renderPokemonTeam(teamArray);
+        } else {
+
         }
     }
     renderPokemonTeam(team){
-        const htmlItems = team.map((pokemon) => {renderPokemonTeam(pokemon)});
-        this.parentElement.innerHTML = htmlItems;
-    }
-    addToBuilder(pokemon){
-        
+        for (let i = 0; i < team.length; i++){
+            const htmlItems = renderPokemonTeamTemplate(team[i]);
+            this.parentElement.insertAdjacentHTML("beforeend", htmlItems);
+        }
     }
 }
