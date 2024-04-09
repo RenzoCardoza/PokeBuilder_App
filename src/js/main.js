@@ -53,7 +53,8 @@ function createPElements(){
     if (recentSearches){
         for (let i = 0; i < recentSearches.length && i < 4; i++){
             if (recentSearches.length > 4){
-                recentSearches.splice(1, 1)
+                recentSearches.splice(1, 1);
+                setLocalStorage("searches", recentSearches);
             }
             let p = document.createElement("p");
             p.setAttribute("class", "r-search-p");

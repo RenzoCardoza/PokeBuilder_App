@@ -131,6 +131,10 @@ header div img{
   margin-right: .5em;
 }
 #newsletter{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
   background-color: #C2E7D9;
   padding: 1em;
   text-align: center;
@@ -141,15 +145,27 @@ header div img{
 }
 #newsletter h3{
   line-height: 2em;
+  padding: 1em;
 }
 #newsletter button{
   padding: .47em;
-  width: 15%;
+  width: 25%;
 }
 #recent-search{
   margin-left: 1em;
   margin-right: 1em;
   min-width: 40%;
+  text-align: center;
+}
+#recent-search-list{
+  background-color: #C2E7D9;
+  padding: .8em;
+  border-radius: 8px;
+}
+#recent-search-list p{
+  background-color: #A6CFD5;
+  padding: .3em;
+  border-radius: 8px;
 }
 .card-container{
   display: flex;
@@ -269,4 +285,12 @@ header div img{
   margin: 1em 4em 1em 4em;
   background-color: #A6CFD5;
   border-radius: 9px;
+}
+.result{
+  padding: 1em;
+  display: flex;
+  justify-content: center;
+  background-color: #A6CFD5;
+  margin: 1em 4em;
+  border-radius: 10px;
 }
