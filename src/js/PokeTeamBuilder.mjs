@@ -27,13 +27,15 @@ export default class PokeBuilder{
     }
     async init(){
         let pokemonTeam = getLocalStorage(this.key);
-        if (pokemonTeam){
+        if (pokemonTeam.length > 0){
             const pokeServices = new PokeServices();
             let teamArray = await pokeServices.getTeamById(pokemonTeam);
             this.renderPokemonTeam(teamArray);
-        } else {
-            htmlSnippet = `<h3>Your selected Pokémon will appear here</h3>`;
-            this.parentElement.innerHTML = htmlSnippet;
+        } else { 
+            if (pokemonTeam.length == 0){
+                let htmlSnippet = `<h3>Your selected Pokémon will appear here</h3>`;
+                this.parentElement.innerHTML = htmlSnippet;
+            }
         }
         this.createEventListener();
     }
@@ -50,8 +52,6 @@ export default class PokeBuilder{
         // add the event listner to every button and delete it if pressed from the localstorage
         for (let i = 0; i < deleteBtn.length; i++){
             deleteBtn[i].addEventListener("click", () => {
-                const id = deleteBtn[i].id;
-                console.log(id);
                 let list = getLocalStorage("team");
                 list.splice(i, 1);
                 setLocalStorage("team", list);
