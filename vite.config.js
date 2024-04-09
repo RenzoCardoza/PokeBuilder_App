@@ -12,6 +12,7 @@ export default defineConfig({
         pokemonListing: resolve(__dirname, "src/pokemon/index.html"),
         pokemonDetails: resolve(__dirname, "src/pokemon_pages/index.html"),
         pokemonTeamBuilder: resolve(__dirname, "src/poke_builder/index.html"),
+        searchResults: resolve(__dirname, "src/searchResult/index.html"),
       },
     },
   },

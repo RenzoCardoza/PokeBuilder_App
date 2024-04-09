@@ -8,7 +8,7 @@ h1, h2, h3,h4{
   font-family: "Libre Baskerville", serif;
   letter-spacing: 0.07em;
 }
-span, p, #navBar{
+span, p, #navBar, button{
   font-family: "Nunito", sans-serif;
   font-optical-sizing: auto;
   letter-spacing: 0.06em;
@@ -230,8 +230,8 @@ header div img{
   margin: 2em auto 1em;
 }
 .addPokeBuildBtn{
-  width: 50%;
-  padding: .4em;
+  width: 30%;
+  padding: .5em;
   border-radius: 8px;
   border: 1px solid;
 }

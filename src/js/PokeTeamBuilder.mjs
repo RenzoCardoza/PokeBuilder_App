@@ -1,5 +1,5 @@
 import PokeServices from "./PokeServices.mjs";
-import { getLocalStorage, capitalizeName } from "./utils.mjs";
+import { getLocalStorage, capitalizeName, setLocalStorage } from "./utils.mjs";
 
 //// function template here
 function renderPokemonTeamTemplate(pokemon){
@@ -35,11 +35,28 @@ export default class PokeBuilder{
             htmlSnippet = `<h3>Your selected Pokémon will appear here</h3>`;
             this.parentElement.innerHTML = htmlSnippet;
         }
+        this.createEventListener();
     }
     renderPokemonTeam(team){
         for (let i = 0; i < team.length; i++){
             const htmlItems = renderPokemonTeamTemplate(team[i]);
             this.parentElement.insertAdjacentHTML("beforeend", htmlItems);
+        }
+    }
+    createEventListener(){
+        // get the delete button to delete from local storage
+        const deleteBtn = document.getElementsByClassName("deleteBtn");
+        console.log(deleteBtn);
+        // add the event listner to every button and delete it if pressed from the localstorage
+        for (let i = 0; i < deleteBtn.length; i++){
+            deleteBtn[i].addEventListener("click", () => {
+                const id = deleteBtn[i].id;
+                console.log(id);
+                let list = getLocalStorage("team");
+                list.splice(i, 1);
+                setLocalStorage("team", list);
+                location.reload();
+            });
         }
     }
 }

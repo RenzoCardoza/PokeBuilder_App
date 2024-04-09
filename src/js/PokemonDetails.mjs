@@ -1,4 +1,4 @@
-import { capitalizeName } from "./utils.mjs"
+import { capitalizeName, getLocalStorage, setLocalStorage } from "./utils.mjs"
 
 //function that has the template for the details card
 function pokemonDetailsTemplate(pokemon){
@@ -24,11 +24,6 @@ function pokemonDetailsTemplate(pokemon){
     </div>`
 }
 
-// function that will have the template for the moves of the pokemon
-function pokemonMovesTemplate(moves){
-    
-}
-
 export default class PokemonDetails {
     constructor(pokemonId, dataSource, cardContainer, moveContainer){
         this.pokemonId = pokemonId;
@@ -44,17 +39,16 @@ export default class PokemonDetails {
         this.moves = this.getPokemonMoves(this.pokemon);
         //render it to the main using the template function above
         this.renderPokemonDetails(this.cardContainer, this.movesContainer, this.moves);
+        this.createEventListener();
     }
     renderPokemonDetails(cardElement, moveContainer, moveList){
         let details = pokemonDetailsTemplate(this.pokemon);
         //insert the html snippet into the code
-        // element.innerHTML = details;
         cardElement.insertAdjacentHTML("afterbegin", details);
         /// here will be the code to iterate through the list and display the p elements
         for (let i = 0; i < moveList.length; i++){
             moveContainer.appendChild(moveList[i]);
         }
-        /////////////////////////////////////// CODE GOES HERE ///////////////////////
     }
     getPokemonMoves(pokemon){
         //this array will contain p elements
@@ -67,5 +61,23 @@ export default class PokemonDetails {
             pElements.push(pElement);
         }
         return pElements;
+    }
+    createEventListener(){
+        let button = document.querySelector(".addPokeBuildBtn");
+        button.addEventListener("click", () => {
+            let teamList = getLocalStorage("team");
+            if (!teamList){
+                let list = [];
+                list.push(this.pokemonId);
+                setLocalStorage("team", list);
+                button.innerHTML = "Added Successfully";
+            } else  if (teamList.length < 6){    
+                teamList.push(this.pokemonId);
+                setLocalStorage("team", teamList);
+                button.innerHTML = "Added Successfully";
+            } else {
+                button.innerHTML = "Edit your team first";
+            }
+        });
     }
 }

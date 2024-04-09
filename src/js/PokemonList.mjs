@@ -33,7 +33,7 @@ export default class PokemonList {
         pokemon = await this.dataSource.getData(this.pokemonId);
       }
       if (this.pokeArray) {
-        for (let i = 0; i < 7; i++){
+        for (let i = 0; i < 6; i++){
           pokemon = await this.dataSource.getData(this.pokeArray[i]); 
           this.renderPokeCard(pokemon); 
         }
