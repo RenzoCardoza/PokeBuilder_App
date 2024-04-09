@@ -3,10 +3,10 @@ import { getLocalStorage, capitalizeName } from "./utils.mjs";
 
 //// function template here
 function renderPokemonTeamTemplate(pokemon){
-    console.log(pokemon);
     const pokemonName = capitalizeName(pokemon.name);
+    const pokemonType = capitalizeName(pokemon.types[0].type.name)
     return `<div class="pokemon-card">
-        <img class="deleteBtn" src="/images/close-circle-svgrepo-com.svg" alt="close button">
+        <img class="deleteBtn" id="${pokemon.id}" src="/images/close-circle-svgrepo-com.svg" alt="close button">
         <a href="/pokemon_pages/index.html?pokemon=${pokemon.id}">
             <h4 class="card_name">${pokemonName}</h4>
             <h4 class="card_name">#${pokemon.id}</h4>
@@ -14,11 +14,10 @@ function renderPokemonTeamTemplate(pokemon){
                 src=${pokemon.sprites.front_default}
                 alt="Image of ${pokemonName}"
             />
-            <span class="pokemon-type">Type: ${pokemon.types[0].type.name}</span>
+            <span class="pokemon-type">Type: ${pokemonType}</span>
         </a>
     </div>`;
 }
-
 
 // class to create the object of the pokebuilder
 export default class PokeBuilder{
@@ -31,10 +30,10 @@ export default class PokeBuilder{
         if (pokemonTeam){
             const pokeServices = new PokeServices();
             let teamArray = await pokeServices.getTeamById(pokemonTeam);
-            console.log(teamArray);
             this.renderPokemonTeam(teamArray);
         } else {
-
+            htmlSnippet = `<h3>Your selected Pokémon will appear here</h3>`;
+            this.parentElement.innerHTML = htmlSnippet;
         }
     }
     renderPokemonTeam(team){
