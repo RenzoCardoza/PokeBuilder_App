@@ -294,3 +294,156 @@ header div img{
   margin: 1em 4em;
   border-radius: 10px;
 }
+
+@media only screen and (min-width: 42rem) and (max-width: 65.99rem){ 
+  .hero-banner h2{
+    font-size: 1.2em;
+  }
+  .searchBar{
+    max-width: 60%;
+  }
+  .searchBar input#pkmnName{
+    width: 60%;
+  }
+  .searchBar input#searchPkmn{
+    width: 20%;
+  }
+  .card-container{
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+  }
+  .pokemon-card{
+    max-width: 100%;
+    width: 77%;
+  }
+  .pokemon-card a{
+    flex-direction: row;   
+    gap: 1.3em;
+  }
+  .recent-newsletter{
+    flex-direction: column;
+    gap: 2em;
+  }
+  #vertical-div{
+    display: none;
+  }
+  #newsletter{
+    max-width: 90%;
+    width: 100%;
+    align-self: center;
+  }
+  #pokemon-show .pokemon-card a{
+    flex-direction: column;
+  }
+  #pokemon-show{
+    justify-items: center;
+  }
+  .team-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    justify-items: center;
+    align-content: center;
+    gap: 2em;
+  }
+  .team-container .pokemon-card a{
+    flex-direction: column;
+  }
+}
+
+@media only screen and (min-width: 23rem) and (max-width: 41.99rem){ 
+  .upper-header{
+    gap: .55em;
+  }
+  .title{
+    font-size: .85rem;
+  }
+  .title a h1{
+    margin-left: 1.5em;
+    margin-right: .2em;
+    text-align: center;
+  }
+  .social-links{
+    flex-direction: column;
+    gap: .5em;
+    align-items: end;
+    margin-right: .3em;
+  }
+  .social-links img{
+    max-width: 60%;
+  }
+  .hero-banner h2{
+    font-size: 1em;
+    line-height: 1.8rem;
+  }
+  .searchBar{
+    max-width: 100%;
+  }
+  .searchBar input#searchPkmn{
+    width: 30%;
+    margin-top: 1.5em;
+  }
+  .card-container{
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+  }
+  .pokemon-card{
+    max-width: 100%;
+    width: 90%;
+  }
+  .pokemon-card a{
+    flex-direction: row;   
+    gap: .8em;
+  }
+  .recent-newsletter{
+    margin-top: 1em;
+    flex-direction: column;
+    gap: 2em;
+  }
+  #vertical-div{
+    display: none;
+  }
+  #newsletter{
+    max-width: 90%;
+    width: 100%;
+    align-self: center;
+  }
+  #pokemon-show .pokemon-card{
+    margin: .5em;
+    justify-self: center;
+  }
+  .pokemon-details{
+    flex-direction: column;
+    align-items: center;
+  }
+  .addPokeBuildBtn{
+    width: 80%;
+    margin-top: 1em;
+  }
+  .team-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    justify-items: center;
+    align-content: center;
+    gap: 2em;
+    margin: 1em 1em;
+    padding: .8em;
+  }
+  .team-container .pokemon-card{
+    flex-direction: row;
+  }
+  .team-container .pokemon-card .deleteBtn{
+    max-width: 8%;
+    margin-right: .5em;
+  }
+  .team-container .pokemon-card img{
+    max-width: 18%;
+  }
+  .team-container .pokemon-card a{
+    flex-direction: row;
+  }
+  .result .pokemon-card a{
+    flex-direction: column;
+  }
+}
