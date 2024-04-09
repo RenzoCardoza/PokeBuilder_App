@@ -51,7 +51,10 @@ let searchElement = document.querySelector("#recent-search-list");
 function createPElements(){
     let recentSearches = getLocalStorage("searches");
     if (recentSearches){
-        for (let i = 0; i < recentSearches.length; i++){
+        for (let i = 0; i < recentSearches.length && i < 4; i++){
+            if (recentSearches.length > 4){
+                recentSearches.splice(1, 1)
+            }
             let p = document.createElement("p");
             p.setAttribute("class", "r-search-p");
             p.innerHTML = recentSearches[i];
