@@ -294,6 +294,29 @@ header div img{
   margin: 1em 4em;
   border-radius: 10px;
 }
+#joinfrm{
+  display: none;
+  max-width: 100%;
+  margin-top: .5em;
+  margin-left: 1.3em;
+  margin-right: 1.3em;
+}
+#joinfrm input#user-email{
+  padding: .3em;
+  border-radius: 9px;
+  border: 1px solid;
+  max-width: 100%;
+  width: 18em;
+}
+#joinfrm input.joinBtn{
+  padding: .3em;
+  width: 4em;
+  border-radius: 8px;
+  border: 1px solid;
+}
+#conf-msg{
+  display: none;
+}
 
 @media only screen and (min-width: 42rem) and (max-width: 65.99rem){ 
   .hero-banner h2{
@@ -445,5 +468,12 @@ header div img{
   }
   .result .pokemon-card a{
     flex-direction: column;
+  }
+  #joinfrm input.joinBtn{
+    padding: .3em;
+    width: 6em;
+    border-radius: 8px;
+    border: 1px solid;
+    margin-top: 2em;
   }
 }

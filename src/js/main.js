@@ -62,7 +62,25 @@ function createPElements(){
             searchElement.appendChild(p);
         }
     } else {
-        searchElement.innerHTML = "<p>No Recent Searches were made</p>"
+        searchElement.innerHTML = "<p>No Recent Searches were made</p>";
     }
 }
 createPElements();
+
+/* ************************** 
+Interact with the newsletter button
+****************************** */
+let joinBtn = document.querySelector("#joinBtn");
+joinBtn.addEventListener("click", (event) =>{
+    event.preventDefault();
+    let form = document.querySelector("#joinfrm");
+    form.style.display = "block";
+    joinBtn.style.display = "none";
+    // now get the button for the join 
+    const secondJoinBtn = document.querySelector("#second-join");
+    secondJoinBtn.addEventListener("click", (event) => {
+        event.preventDefault();
+        form.style.display = "none";
+        document.querySelector("#conf-msg").style.display = "block";
+    });
+});
