@@ -1,8 +1,8 @@
-# sleepoutside
+# PokeBuilder App
 
 ## Description
 
-Use this as a starting point to complete the WDD 330 team activity: the SleepOutside web application. It scaffolds out a simple web app with Vite support to bundle up our assets.
+This web app uses the existing PokeAPI to display existing Pokemon. Also, its main purpose is to build the dream team for Pokemon fans who want to take their game to the next level. This was a project for the WDD330 Course at Brigham Young University Idaho. This project also displays the ability to work with JavaScript Modules, localStorage, and other front-end skills. 
 
 ## Prerequisites
 
